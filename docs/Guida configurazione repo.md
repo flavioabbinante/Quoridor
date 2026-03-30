@@ -2,11 +2,11 @@
 
 ## Indice
 
-- Accettazione assignment del primo componente e creazione repository su GitHub
-- Accettazione assignment degli altri componenti e accesso al repository su GitHub
-- Configurazione del repository su GitHub
-  - Abilitazione package/immagini Docker
-  - Aggiunta del badge di GitHub Actions nel README
+- [Accettazione assignment del primo componente e creazione repository su GitHub](#accettazione-assignment-del-primo-componente-e-creazione-repository-su-github)
+- [Accettazione assignment degli altri componenti e accesso al repository su GitHub](#accettazione-assignment-degli-altri-componenti-e-accesso-al-repository-su-github)
+- [Configurazione del repository su GitHub](#configurazione-del-repository-su-github)
+  - [Abilitazione package/immagini Docker](#abilitazione-packageimmagini-docker)
+  - [Aggiunta del badge di GitHub Actions nel README](#aggiunta-del-badge-di-github-actions-nel-readme)
 
 ## Accettazione assignment del primo componente e creazione repository su GitHub
 
