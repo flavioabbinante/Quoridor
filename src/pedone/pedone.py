@@ -2,7 +2,7 @@
 from typing import Literal
 
 class Pedone:
-    def __init__(self, nome: str, colore: Literal["Red", "Blue"], cellaPartenza: Cella, posizione: Cella, obiettivo: int):
+    def __init__(self, nome: str, colore: Literal["red", "blue"], cellaPartenza: Cella, posizione: Cella, obiettivo: int):
         """Costruttore della classe Pedone.
         
         Args:

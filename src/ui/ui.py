@@ -1,6 +1,7 @@
 """Gestisce l'interfaccia grafica relativa ai menu e gli input del gioco"""
 
 from rich.console import Console
+from pedone.pedone import Pedone
 
 class UI:
 
@@ -64,17 +65,16 @@ Autori del progetto:
 - Giovanni Luca Dell'Aquila
         """)
 
-    def mostraTurno(self, pedone, color, muriRimanenti):
+    def mostraTurno(self, pedone: Pedone, muriRimanenti):
         """
         Mostra il turno corrente.
 
         Args:
             pedone (str): Nome o simbolo del pedone.
-            color (str): Colore del testo per il pedone.
             muriRimanenti (int): Numero di muri rimasti al giocatore.
         """
         self.console.print(
-            f"Turno di [bold {color}]{pedone}[/bold {color}] "
+            f"Turno di [bold {pedone.getColore()}]{pedone.getNome()}[/bold {pedone.getColore()}] "
             f"[white]| Muri rimanenti:[/white] [bold yellow]{muriRimanenti}[/bold yellow]"
         )
 
