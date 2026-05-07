@@ -1,6 +1,8 @@
 """Gestisce il pedone e le azioni che può compiere"""
 from typing import Literal
 
+from griglia.cella import Cella
+
 class Pedone:
     def __init__(self, nome: str, colore: Literal["red", "blue"], cellaPartenza: Cella, posizione: Cella, obiettivo: int):
         """Costruttore della classe Pedone.
