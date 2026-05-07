@@ -1,0 +1,1 @@
+"""Gestisce l'interfaccia grafica relativa ai menu e gli input del gioco"""

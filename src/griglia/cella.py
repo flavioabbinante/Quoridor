@@ -1,0 +1,1 @@
+""" Gestisce le singole celle della griglia """

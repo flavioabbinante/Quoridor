@@ -1,0 +1,1 @@
+""" Gestisce lo stato della griglia di gioco, garantisce il rispetto delle regole di gioco """
