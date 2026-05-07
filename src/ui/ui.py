@@ -5,12 +5,15 @@ from rich.console import Console
 class UI:
 
     def __init__(self):
-        """Costruttore della classe UI"""
+        """
+        Inizializza la console "Rich" per la gestione dell'interfaccia.
+        """
         self.console = Console()
 
     def menuIniziale(self):
-        """Mostra il menu iniziale"""
-
+        """
+        Mostra il menu iniziale del gioco.
+        """
         self.console.print("[bold cyan]1.[/bold cyan] Nuova partita")
         self.console.print("[bold cyan]2.[/bold cyan] Regole del gioco")
         self.console.print("[bold cyan]3.[/bold cyan] Crediti   ")
@@ -47,8 +50,9 @@ class UI:
         """)
 
     def crediti(self):
-        """Mostra i crediti del gioco"""
-
+        """
+        Mostra gli autori del progetto.
+        """
         self.console.print("""
         [bold cyan]CREDITI[/bold cyan]
 
@@ -60,20 +64,36 @@ Autori del progetto:
 - Giovanni Luca Dell'Aquila
         """)
 
-    def mostraTurno(self, pedone,color, muriRimanenti):
-        """Mostra il turno corrente"""
+    def mostraTurno(self, pedone, color, muriRimanenti):
+        """
+        Mostra il turno corrente.
 
+        Args:
+            pedone (str): Nome o simbolo del pedone.
+            color (str): Colore del testo per il pedone.
+            muriRimanenti (int): Numero di muri rimasti al giocatore.
+        """
         self.console.print(
             f"Turno di [bold {color}]{pedone}[/bold {color}] "
             f"[white]| Muri rimanenti:[/white] [bold yellow]{muriRimanenti}[/bold yellow]"
         )
 
-    def erroreMsg(self,message:str):
+    def erroreMsg(self, message: str):
+        """
+        Mostra un messaggio di errore.
+
+        Args:
+            message (str): Testo dell'errore da visualizzare.
+        """
         self.console.print(f"[bold red]{message}[/bold red]")
 
     def schermataVittoria(self, vincitore):
-        """Mostra la schermata di vittoria"""
+        """
+        Mostra la schermata di vittoria.
 
+        Args:
+            vincitore (str): Nome del giocatore vincente.
+        """
         self.console.print(
             f"\n[bold black on yellow]PARTITA TERMINATA: [/bold black on yellow] \n VINCITORE: [bold]{vincitore}[/bold] \n"
         )
