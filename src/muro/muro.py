@@ -1,0 +1,1 @@
+"""Gestisce la logica dei muri e del loro inserimento nella griglia"""
