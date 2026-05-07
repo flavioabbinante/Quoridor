@@ -2,12 +2,12 @@
 from typing import Literal
 
 class Pedone:
-    def __init__(self, nome: str, colore: Literal["rosso", "blu"], cellaPartenza: Cella, posizione: Cella, obiettivo: int):
+    def __init__(self, nome: str, colore: Literal["Red", "Blue"], cellaPartenza: Cella, posizione: Cella, obiettivo: int):
         """Costruttore della classe Pedone.
         
         Args:
             nome: Nome del pedone
-            colore: Colore del pedone ('rosso', 'blu')
+            colore: Colore del pedone ('Red', 'Blue')
             cellaPartenza: Cella di partenza
             posizione: Posizione attuale
             obiettivo: Obiettivo da raggiungere
@@ -73,4 +73,10 @@ class Pedone:
             self.muri -= 1
             return True
         else:
-            return "Muri esauriti"
+            return "Muri esauriti"  #TODO: aggiungere Errore UI
+        
+    def checkVittoria(self):
+        """Controlla se il pedone ha raggiunto l'obiettivo.
+        
+        """
+        pass
