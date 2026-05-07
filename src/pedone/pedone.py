@@ -1,0 +1,1 @@
+"""Gestisce il pedone e le azioni che può compiere"""

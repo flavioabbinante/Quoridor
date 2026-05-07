@@ -1,0 +1,1 @@
+"""Package che gestisce la logica dei pedoni"""
