@@ -47,20 +47,13 @@ class Pedone:
         return self.obiettivo
 
 
-    def muoviPedone(self, direzione):
-        """Muove il pedone nella direzione specificata.
+    def muoviPedone(self, posizione: Cella):
+        """Muove il pedone nella posizione specificata.
         
         Args:
-            direzione: Direzione del movimento ('su', 'giu', 'sinistra', 'destra')
+            posizione: Posizione di destinazione
         """
-        if direzione == "su":
-            self.posizione.riga -= 1
-        elif direzione == "giu":
-            self.posizione.riga += 1
-        elif direzione == "sinistra":
-            self.posizione.colonna -= 1
-        elif direzione == "destra":
-            self.posizione.colonna += 1
+        self.posizione = posizione
 
 
     def usaMuro(self):
