@@ -31,3 +31,52 @@ class Griglia:
         Utile per assegnare CellaPartenza o Posizione a un Pedone.
         """
         return self.celle.get((riga, colonna), None)
+
+    def passaggio_libero(self, cella_partenza, cella_destinazione):
+        """
+        Verifica se c'è un muro tra due celle adiacenti.
+        Restituisce True se si può passare, False se c'è un muro.
+        """
+        riga_mezzo = (cella_partenza.riga + cella_destinazione.riga) // 2
+        col_mezzo = (cella_partenza.colonna + cella_destinazione.colonna) // 2
+        
+        
+        if self.matrice[riga_mezzo, col_mezzo] == 1:
+            return False # Muro
+        else:
+            return True  # Libero
+        
+
+
+def piazza_muro(self, muro: Muro) -> bool:
+        """
+        Tenta di piazzare un Muro nella matrice NumPy espandendolo dal centro.
+        Restituisce True se ha successo, False se illegale.
+        """
+        indici_da_occupare = []
+        r = muro.riga
+        c = muro.colonna
+
+
+        #Aggiunta muro orizzontale ('h')
+        if muro.orientamento == 'h':
+            indici_da_occupare = [
+                (r, c - 1),(r, c),(r, c + 1)   
+            ]
+        elif muro.orientamento == 'v':
+        ## AGGIUNGI MURO VERTICALE
+            
+        # 2. Controllo Collisioni
+        for rind, cind in indici_da_occupare:
+            if rind < 0 or rind >= 17 or cind < 0 or cind >= 17:
+                return False
+                
+            
+            if self.matrice[rind, cind] == 1:
+                return False 
+                
+        # 3. Piazzamento effettivo 
+        for rind, cind in indici_da_occupare:
+            self.matrice[rind, cind] = 1
+            
+        return True
