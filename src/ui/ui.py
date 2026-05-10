@@ -98,4 +98,11 @@ Autori del progetto:
             f"\n[bold black on yellow]PARTITA TERMINATA: [/bold black on yellow] \n VINCITORE: [bold]{vincitore}[/bold] \n"
         )
 
+    def helpMessage(): #TODO: Qui ci và il messaggio di aiuto
+        """Mostra il messaggio di aiuto durante la partita"""
+        pass
+
+    def printGriglia():
+        """Stampa la griglia di gioco"""
+        pass
 
