@@ -98,9 +98,21 @@ Autori del progetto:
             f"\n[bold black on yellow]PARTITA TERMINATA: [/bold black on yellow] \n VINCITORE: [bold]{vincitore}[/bold] \n"
         )
 
-    def helpMessage(): #TODO: Qui ci và il messaggio di aiuto
-        """Mostra il messaggio di aiuto durante la partita"""
-        pass
+   def helpMessage(self):
+        """
+        Mostra il messaggio di aiuto durante la partita.
+        """
+        self.stampaRegole() # Richiama le regole già implementate
+        
+        self.console.print("\n[bold yellow]— GUIDA RAPIDA AI COMANDI —[/bold yellow]")
+        self.console.print("[cyan]MOVIMENTO PEDONE:[/cyan] Inserisci la coordinata (es. [bold]e2[/bold], [bold]f5[/bold])")
+        self.console.print("[cyan]POSIZIONA MURO:[/cyan] Intersezione + orientamento (es. [bold]e4h[/bold] o [bold]c2v[/bold])")
+        self.console.print("      (h = orizzontale, v = verticale)")
+        
+        self.console.print("\n[bold yellow]— REGOLE E VITTORIA —[/bold yellow]")
+        self.console.print("[white]OBIETTIVO:[/white] Vince chi raggiunge per primo il lato opposto.")
+        self.console.print("[white]MURI:[/white] Ogni giocatore ha 10 muri. Vietato bloccare totalmente l'avversario.")
+        self.console.print("[bold yellow]—————————————————————————————[/bold yellow]\n")
 
     def printGriglia():
         """Stampa la griglia di gioco"""
