@@ -87,15 +87,18 @@ Autori del progetto:
             f"[bold white]VINCITORE:[/bold white] [bold bright_green]{vincitore}[/bold bright_green]\n"
         )
 
-    def helpMessage(self): 
-        """Mostra il messaggio di aiuto durante la partita"""
-        self.console.print(f"""
-[bold {self._ACCENT_COLOR}]COMANDI DI GIOCO:[/bold {self._ACCENT_COLOR}]
-- [bold white]Muovere un pedone:[/bold white] Inserisci le coordinate della casella (es. [green]e2[/green], [green]a5[/green])
-- [bold white]Piazzare un muro:[/bold white] Inserisci le coordinate dell'incrocio seguite da 'h' (orizzontale) o 'v' (verticale) (es. [yellow]e2h[/yellow], [yellow]f3v[/yellow])
-- [bold white]Aiuto:[/bold white] Digita [{self._ACCENT_COLOR}]help[/{self._ACCENT_COLOR}] per rivedere questo menu
-- [bold white]Abbandonare:[/bold white] Digita [red]quit[/red] o [red]esci[/red] per terminare la partita
-        """)
+  def helpMessage(self):
+        """Mostra il messaggio di aiuto con i comandi e le regole del gioco."""
+        print("\n=== MENU DI AIUTO ===")
+        print("Comandi disponibili:")
+        print("- muovi [cella]: Muove il pedone (es. muovi g3)")
+        print("- muro [cella] [orientamento]: Piazza un muro (es. muro f4 h)")
+        print("- aiuto: Mostra questo messaggio")
+        
+        # Richiamo della funzione corretta per evitare doppioni
+        self.mostraRegole() 
+        
+        print("=====================\n")
 
     def mostraTurno(self, pedone: Pedone):
         """Mostra di chi è il turno usando l'accent color per evidenziare."""
