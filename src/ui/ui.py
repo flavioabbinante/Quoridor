@@ -98,21 +98,18 @@ Autori del progetto:
             f"\n[bold black on yellow]PARTITA TERMINATA: [/bold black on yellow] \n VINCITORE: [bold]{vincitore}[/bold] \n"
         )
 
-   def helpMessage(self):
-        """
-        Mostra il messaggio di aiuto durante la partita.
-        """
-        self.stampaRegole() # Richiama le regole già implementate
+  def helpMessage(self):
+        """Mostra il messaggio di aiuto con i comandi e le regole del gioco."""
+        print("\n=== MENU DI AIUTO ===")
+        print("Comandi disponibili:")
+        print("- muovi [cella]: Muove il pedone (es. muovi g3)")
+        print("- muro [cella] [orientamento]: Piazza un muro (es. muro f4 h)")
+        print("- aiuto: Mostra questo messaggio")
         
-        self.console.print("\n[bold yellow]— GUIDA RAPIDA AI COMANDI —[/bold yellow]")
-        self.console.print("[cyan]MOVIMENTO PEDONE:[/cyan] Inserisci la coordinata (es. [bold]e2[/bold], [bold]f5[/bold])")
-        self.console.print("[cyan]POSIZIONA MURO:[/cyan] Intersezione + orientamento (es. [bold]e4h[/bold] o [bold]c2v[/bold])")
-        self.console.print("      (h = orizzontale, v = verticale)")
+        # Richiamo della funzione corretta per evitare doppioni
+        self.mostraRegole() 
         
-        self.console.print("\n[bold yellow]— REGOLE E VITTORIA —[/bold yellow]")
-        self.console.print("[white]OBIETTIVO:[/white] Vince chi raggiunge per primo il lato opposto.")
-        self.console.print("[white]MURI:[/white] Ogni giocatore ha 10 muri. Vietato bloccare totalmente l'avversario.")
-        self.console.print("[bold yellow]—————————————————————————————[/bold yellow]\n")
+        print("=====================\n")
 
     def printGriglia():
         """Stampa la griglia di gioco"""
