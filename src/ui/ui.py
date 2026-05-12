@@ -98,9 +98,18 @@ Autori del progetto:
             f"\n[bold black on yellow]PARTITA TERMINATA: [/bold black on yellow] \n VINCITORE: [bold]{vincitore}[/bold] \n"
         )
 
-    def helpMessage(): #TODO: Qui ci và il messaggio di aiuto
-        """Mostra il messaggio di aiuto durante la partita"""
-        pass
+  def helpMessage(self):
+        """Mostra il messaggio di aiuto con i comandi e le regole del gioco."""
+        print("\n=== MENU DI AIUTO ===")
+        print("Comandi disponibili:")
+        print("- muovi [cella]: Muove il pedone (es. muovi g3)")
+        print("- muro [cella] [orientamento]: Piazza un muro (es. muro f4 h)")
+        print("- aiuto: Mostra questo messaggio")
+        
+        # Richiamo della funzione corretta per evitare doppioni
+        self.mostraRegole() 
+        
+        print("=====================\n")
 
     def printGriglia():
         """Stampa la griglia di gioco"""
