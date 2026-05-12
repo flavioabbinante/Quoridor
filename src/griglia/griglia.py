@@ -1,5 +1,7 @@
 import numpy as np
+
 from .cella import Cella
+from muro.muro import Muro
 
 class Griglia:
     """
@@ -63,14 +65,15 @@ def piazza_muro(self, muro: Muro) -> bool:
             indici_da_occupare = [
                 (r, c - 1),(r, c),(r, c + 1)   
             ]
-        elif muro.orientamento == 'v':
-        ## AGGIUNGI MURO VERTICALE
+        elif muro.orientamento == 'v': #Aggiunta muro verticale ('v')
+            indici_da_occupare = [
+                (r - 1, c),(r, c),(r + 1, c)
+            ]
             
         # 2. Controllo Collisioni
         for rind, cind in indici_da_occupare:
             if rind < 0 or rind >= 17 or cind < 0 or cind >= 17:
                 return False
-                
             
             if self.matrice[rind, cind] == 1:
                 return False 
