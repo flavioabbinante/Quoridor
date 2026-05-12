@@ -1,7 +1,7 @@
 import numpy as np
 
 from .cella import Cella
-from src.muro.muro import Muro
+from muro.muro import Muro
 
 class Griglia:
     """
