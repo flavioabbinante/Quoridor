@@ -158,3 +158,31 @@ Autori del progetto:
             
         self.console.print("   [dim]" + "-" * 37 + "[/dim]")
         self.console.print(f"     [bold {self._ACCENT_COLOR}]a   b   c   d   e   f   g   h   i[/bold {self._ACCENT_COLOR}]\n")
+
+    def checkInput(self, input_utente):
+        """
+        Valida l'input del giocatore (US #57).
+        Ritorna il tipo di azione o None se non valido.
+        """
+        # Caso muro: 3 caratteri (es. a1h)
+        if len(input_utente) == 3:
+            if 'a' <= input_utente[0] <= 'h':
+                if '1' <= input_utente[1] <= '8':
+                    if input_utente[2] == 'h' or input_utente[2] == 'v':
+                        return "wall"
+
+        # Caso movimento: 2 caratteri (es. e2)
+        elif len(input_utente) == 2:
+            if 'a' <= input_utente[0] <= 'i':
+                if '1' <= input_utente[1] <= '8':
+                    return "move"
+
+        # Comandi speciali con slash (stile chat/console)
+        elif input_utente == "/help":
+            return "help"
+        elif input_utente == "/quit":
+            return "quit"
+        elif input_utente == "/bye":
+            return "bye"
+
+        return None
