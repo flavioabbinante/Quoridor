@@ -5,16 +5,17 @@ def checkInput(input: str):
     """controlla che l'input sia corretto e che segua un certo ordine"""
     pass
 
-def abbandonaPartita():
+def abbandonaPartita(turno):
     """permette al giocatore di abbandonare la partita in corso"""
-    scelta = input(f"{turno_attuale}, vuoi davvero abbandonare la partita? (s/n): ").lower()
-    if scelta == 's':
-        vincitore = "Giocatore 2" if turno_attuale == "Giocatore 1" else "Giocatore 1"
-        print(f"Il {turno_attuale} ha abbandonato.")
-        print(f"Vincitore: {vincitore}!")
-        return True
+    if turno % 2 == 0:
+        print("P2 ha abbandonato")
+        vincitore = "P1"
     else:
-        return False
+        print("P1 ha abbandonato")
+        vincitore = "P2"
+        
+    return vincitore
+
 
 def esciGioco():
     """permette al giocatore di uscire dal gioco"""
