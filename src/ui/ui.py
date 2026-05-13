@@ -87,7 +87,7 @@ Autori del progetto:
             f"[bold white]VINCITORE:[/bold white] [bold bright_green]{vincitore}[/bold bright_green]\n"
         )
 
-  def helpMessage(self):
+    def helpMessage(self):
         """Mostra il messaggio di aiuto con i comandi e le regole del gioco."""
         print("\n=== MENU DI AIUTO ===")
         print("Comandi disponibili:")
