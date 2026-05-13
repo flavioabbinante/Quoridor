@@ -174,12 +174,12 @@ Autori del progetto:
                 if '1' <= input_utente[1] <= '8':
                     return "move"
 
-        # Comandi speciali con backslash
-        elif input_utente == "\\help":
+        # Comandi speciali con slash (stile chat/console)
+        elif input_utente == "/help":
             return "help"
-        elif input_utente == "\\quit":
+        elif input_utente == "/quit":
             return "quit"
-        elif input_utente == "\\bye":
+        elif input_utente == "/bye":
             return "bye"
 
         return None
