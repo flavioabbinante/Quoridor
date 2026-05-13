@@ -24,7 +24,7 @@ Il sistema deve rispettare le regole del gioco, gestire le partite e permettere 
 ---
 
 ## Modello di dominio
-
+![alt text](<img/modello di dominio.png>)
 
 ---
 
