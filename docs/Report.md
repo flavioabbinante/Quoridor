@@ -55,9 +55,15 @@ I requisiti funzionali descrivono le operazioni che il sistema deve eseguire per
 * Il sistema deve permettere di abbandonare la partita in corso dichiarando la resa.
 * Il sistema deve permettere di chiudere ed uscire definitivamente dall'applicazione.
 
-### 3.2 Requisiti non funzionali
+### Requisiti non funzionali
 
----
+I requisiti non funzionali definiscono i criteri di qualità del sistema, garantendo che l'applicazione sia efficiente, manutenibile e facile da utilizzare.
+
+* **Usabilità (Interfaccia CLI):** L'applicazione pur essendo eseguita da terminale, deve risultare visivamente chiara e intuitiva. Deve utilizzare formattazione avanzata e colori (`rich`) per distinguere nettamente i pedoni dei due giocatori, i muri e le coordinate della scacchiera.
+* **Manutenibilità e Modularità:** Il codice deve essere strutturato seguendo i principi della Programmazione Orientata agli Oggetti (OOP). Il sistema deve garantire un alto grado di disaccoppiamento (Separation of Concerns), dividendo chiaramente la logica di dominio dalla logica di presentazione.
+* **Efficienza:** Il motore di gioco deve validare i movimenti e calcolare le collisioni con i muri in modo ottimizzato. A tale scopo, il sistema richiede l'uso di array efficienti gestiti tramite la libreria `numpy`.
+* **Gestione degli errori:** Il sistema non deve andare in crash a fronte di input imprevisti da parte dell'utente. Deve invece intercettare l'errore e mostrare un messaggio di feedback chiaro, permettendo al giocatore di ripetere l'inserimento.
+* **Portabilità:** Il gioco deve poter essere eseguit dalla maggioranza dei Terminali.
 
 ## System Design
 Descrizione dell’architettura generale del sistema e dei suoi componenti principali.
