@@ -17,7 +17,7 @@
 
 ## Introduzione
 Il progetto riguarda la realizzazione del gioco del Quoridor, un gioco da tavolo a turni in cui due giocatori si sfidano per arrivare al lato opposto della scacchiera, usando anche dei muri per ostacolare l’avversario.
-Il software viene sviluppato in gruppo da studenti, con team composti da 4 a 7 persone. L’obiettivo è applicare le basi dell’ingegneria del software, lavorando sulla progettazione del sistema, sulla divisione in parti e su una struttura del codice chiara.
+Il software viene sviluppato in gruppo da studenti, con team composti da 5 persone. L’obiettivo è applicare le basi dell’ingegneria del software, lavorando sulla progettazione del sistema, sulla divisione in parti e su una struttura del codice chiara.
 Il sistema deve rispettare le regole del gioco, gestire le partite e permettere ai giocatori di interagire correttamente. Inoltre, si cerca di creare un progetto facile da capire, modificare ed estendere.
 
 
@@ -30,9 +30,30 @@ Il sistema deve rispettare le regole del gioco, gestire le partite e permettere 
 
 ## Requisiti specifici
 
-### 3.1 Requisiti funzionali
-Cosa deve fare il sistema
+### Requisiti funzionali
 
+I requisiti funzionali descrivono le operazioni che il sistema deve eseguire per garantire il corretto svolgimento di una partita a Quoridor, coprendo le funzionalità richieste dalle User Story del progetto.
+
+**Gestione della Partita e Visualizzazione:**
+* Il sistema deve permettere di avviare una nuova partita chiedendo i nomi dei giocatori.
+* Il sistema deve visualizzare a schermo la scacchiera di gioco aggiornata ad ogni turno, mostrando chiaramente le celle, la posizione dei pedoni e i muri piazzati.
+* Il sistema deve alternare il turno tra il Giocatore 1 e il Giocatore 2.
+* Il sistema deve verificare dinamicamente le condizioni di vittoria e decretare la fine della partita quando un pedone raggiunge la riga opposta a quella di partenza.
+
+**Azioni dei Giocatori:**
+* Il sistema deve permettere al giocatore di muovere il proprio pedone di una casella in senso ortogonale (orizzontale o verticale).
+* Il sistema deve permettere al giocatore di piazzare un muro orizzontale che occupi l'equivalente di due fessure.
+* Il sistema deve permettere al giocatore di piazzare un muro verticale che occupi l'equivalente di due fessure.
+
+**Validazione e Rispetto delle Regole:**
+* Il sistema deve scalare un muro dal contatore del giocatore ogni volta che ne piazza uno, impedendone il piazzamento se il contatore (MAX 10) ha raggiunto lo zero.
+* Il sistema deve impedire i movimenti illegali del pedone.
+* Il sistema deve impedire il piazzamento di muri sovrapposti, incidenti o che fuoriescano dalla griglia.
+
+**Interazione dell'Utente:**
+* Il sistema deve fornire un comando per mostrare un messaggio di aiuto con la lista delle istruzioni di gioco in qualsiasi momento.
+* Il sistema deve permettere di abbandonare la partita in corso dichiarando la resa.
+* Il sistema deve permettere di chiudere ed uscire definitivamente dall'applicazione.
 
 ### 3.2 Requisiti non funzionali
 
