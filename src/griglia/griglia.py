@@ -49,8 +49,7 @@ class Griglia:
             return True  # Libero
         
 
-
-def piazza_muro(self, muro: Muro) -> bool:
+    def piazza_muro(self, muro: Muro) -> bool:
         """
         Tenta di piazzare un Muro nella matrice NumPy espandendolo dal centro.
         Restituisce True se ha successo, False se illegale.

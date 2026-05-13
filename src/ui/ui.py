@@ -92,8 +92,11 @@ Autori del progetto:
         print("\n=== MENU DI AIUTO ===")
         print("Comandi disponibili:")
         print("- muovi [cella]: Muove il pedone (es. muovi g3)")
-        print("- muro [cella] [orientamento]: Piazza un muro (es. muro f4 h)")
-        print("- aiuto: Mostra questo messaggio")
+        print("- muro [cella] [orientamento]: Piazza un muro (es. muro f4h)")
+        print("- /help: Mostra questo messaggio")
+        print("- /bye: Esci dal gioco")
+        print("- /quit: Abbandona la partita")
+
         
         # Richiamo della funzione corretta per evitare doppioni
         self.mostraRegole() 

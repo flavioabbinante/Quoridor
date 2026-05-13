@@ -18,7 +18,7 @@ def abbandonaPartita(turno):
 
 
 def esciGioco():
-    """permette al giocatore di uscire dal gioco"""
+    """permette al giocatore di uscire dal gioco e fermare il processo"""
     scelta = input("Sei sicuro di voler uscire dal gioco? (s/n): ").lower()
     if scelta == 's':
         print("\nChiusura del gioco in corso. A presto!")
