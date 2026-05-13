@@ -1,7 +1,7 @@
 """questo è un modulo di funzioni utili allo svolgimento del programma"""
 
 
-def checkInput(self, input: str):
+def checkInput(input: str):
     """controlla che l'input sia corretto e che segua un certo ordine"""
     pass
 
