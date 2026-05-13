@@ -4,7 +4,7 @@ from typing import Literal
 from griglia.cella import Cella
 
 class Pedone:
-    def __init__(self, nome: str, colore: Literal["red", "blue"], cellaPartenza: Cella, posizione: Cella, obiettivo: int):
+    def __init__(self, nome: str, colore: Literal["red", "blue"], cellaPartenza: Cella, obiettivo: int):
         """Costruttore della classe Pedone.
         
         Args:
@@ -17,7 +17,7 @@ class Pedone:
         self.nome = nome
         self.colore = colore
         self.cellapartenza = cellaPartenza
-        self.posizione = posizione
+        self.posizione = cellaPartenza
         self.muri = 10
         self.obiettivo = obiettivo
 
