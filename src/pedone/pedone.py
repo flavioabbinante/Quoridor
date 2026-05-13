@@ -70,8 +70,13 @@ class Pedone:
         else:
             return "Muri esauriti"  #TODO: aggiungere Errore UI
         
-    def checkVittoria(self):
+    def checkVittoria(self) -> bool:
         """Controlla se il pedone ha raggiunto l'obiettivo.
-        
+
+        Returns:
+            bool: True se il pedone ha raggiunto la riga obiettivo, False altrimenti.
         """
-        pass
+        if self.posizione.riga == self.obiettivo:
+            return True
+        
+        return False
