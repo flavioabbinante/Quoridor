@@ -86,6 +86,7 @@ class Main:
                     mossaCompletata = True
             
             turno += 1
+            util.clearScreen()
             
         vincitore = self.p1.getNome() if self.p1.checkVittoria() else self.p2.getNome()
             
