@@ -91,7 +91,7 @@ L'architettura del software è suddivisa in package specifici per garantire un a
 | **`utility`** | Fornisce funzioni di supporto condivise, come il parser per validare l'input testuale dell'utente e l'algoritmo di conversione dalle coordinate umane (notazione del quoridor) agli indici della matrice. | `sys` |
 
 ## Diagramma dei componenti 
-Da inserire se si usano librerie esterne
+![alt text](<img/Diagramma_componenti.png>)
 
 ---
 
