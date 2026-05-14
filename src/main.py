@@ -56,7 +56,7 @@ class Main:
         while not self.p1.checkVittoria() and not self.p2.checkVittoria():
             self.ui.printGriglia(self.griglia.matrice, [self.p1, self.p2])
             
-            if turno % 2 != 0:
+            if turno % 2 == 0:
                 currPedone = self.p1
             else:
                 currPedone = self.p2
@@ -85,9 +85,53 @@ class Main:
             
         self.ui.schermataVittoria(vincitore)
 
+    def eseguiMossa(self, scelta: str, pedone: Pedone):
 
+        azione = util.checkInput(scelta) # Controllo che l'input sia valido e capisco quale azione si vuole eseguire
         
-        turno += 1
+        # Se devo piazzare un muro o muovere il pedone
+        if azione == "move" or azione == "wall":
+            r, c = util.convertiCoordinate(scelta, azione) # Converto le coordinate da stringa a indici
+            
+            if azione == "move":
+                destinazione = self.griglia.get_cella(r, c)
+                posizioneAttuale = pedone.getPosizione()
+
+                # Verifica che la cella sia esattamente adiacente (ortogonale)
+                distanzaValida = abs(destinazione.riga - posizioneAttuale.riga) + abs(destinazione.colonna - posizioneAttuale.colonna) == 2
+
+                if destinazione and distanzaValida and self.griglia.passaggio_libero(posizioneAttuale, destinazione):
+                    pedone.muoviPedone(destinazione)
+                    return True
+                else:
+                    self.ui.erroreMsg("Movimento non consentito. Puoi spostarti solo in una cella adiacente.")
+
+            else: # Piazzamento muro
+                orientamento = scelta[2] # l'ordine è riga, colonna, orientamento
+                nuovoMuro = Muro(r, c, orientamento)
+                
+                if pedone.usaMuro() == True:
+                    # Tenta il piazzamento fisico sulla griglia
+                    if self.griglia.piazza_muro(nuovoMuro):
+                        return True
+                    else:
+                        # Restituisce il muro se il piazzamento fallisce (collisione o fuori limiti)
+                        pedone.muri += 1
+                        self.ui.erroreMsg("Non è possibile piazzare il muro in questa posizione.")
+                else:
+                    self.ui.erroreMsg("Non hai più muri a disposizione.")
+                    
+        # Comandi speciali
+        elif azione == "help":
+            self.ui.helpMessage()   
+        elif azione == "quit":
+            return "quit"    
+        elif azione == "bye":
+            util.esciGioco()
+        else:
+            self.ui.erroreMsg("Comando non riconosciuto.")
+            
+        return False
 
 if __name__ == "__main__":
     main = Main()
