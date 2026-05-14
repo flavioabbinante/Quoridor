@@ -16,12 +16,12 @@
 ---
 
 ## Introduzione
-Il progetto riguarda la realizzazione del gioco del Quoridor, un gioco da tavolo a turni in cui due giocatori si sfidano per arrivare al lato opposto della scacchiera, usando anche dei muri per ostacolare l’avversario.
-Il software viene sviluppato in gruppo da studenti, con team composti da 5 persone. L’obiettivo è applicare le basi dell’ingegneria del software, lavorando sulla progettazione del sistema, sulla divisione in parti e su una struttura del codice chiara.
-Il sistema deve rispettare le regole del gioco, gestire le partite e permettere ai giocatori di interagire correttamente. Inoltre, si cerca di creare un progetto facile da capire, modificare ed estendere.
 
+Il presente documento costituisce la Relazione Tecnica del progetto "Quoridor". L'obiettivo principale è la realizzazione di una versione digitale, fedele e completamente giocabile del gioco da tavolo *Quoridor*. 
 
----
+**Scopo del sistema sviluppato**
+L'applicazione permette a due giocatori di sfidarsi in locale tramite un'interfaccia a riga di comando (CLI) avanzata. Il sistema si occupa di gestire autonomamente il ciclo di gioco, alternando i turni, validando in tempo reale le mosse e decretando la vittoria non appena un giocatore raggiunge la riga diametralmente opposta a quella di partenza, nel pieno rispetto del regolamento ufficiale.
+
 
 ## Modello di dominio
 ![alt text](<img/modello di dominio.png>)
