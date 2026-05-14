@@ -1,5 +1,3 @@
-from os import system
-
 from rich import print
 
 from griglia.cella import Cella
@@ -22,30 +20,30 @@ class Main:
     def run(self):
         """Avvia il gioco, mostrando il menu iniziale."""
         print("[bold green]Benvenuto nel gioco del Quoridor![/bold green]\n")
-        system("pause")
-        system("cls")
+        util.waitKey()
+        util.clearScreen()
         menuIniziale = ""
-        while menuIniziale != "1":
+        while True:
             self.ui.menuIniziale()
             menuIniziale = input("Seleziona un'opzione: ")
             if menuIniziale == "1": # Qui si gestisce la nuova partita
                 self.partita() # Inizio della nuova partita
-
+                util.waitKey()
+                util.clearScreen()
             elif menuIniziale == "2": # Regole del gioco
                 self.ui.mostraRegole()
-                system("pause")
-                system("cls")
-
+                util.waitKey()
+                util.clearScreen()
             elif menuIniziale == "3": # Autori del progetto
                 self.ui.crediti()
-                system("pause")
-                system("cls")
+                util.waitKey()
+                util.clearScreen()
             elif menuIniziale == "0":
                 util.esciGioco() # Esco dal gioco e fermo il processo
             else:
                 self.ui.erroreMsg("Opzione non valida. Riprova.")
-                system("pause")
-                system("cls")
+                util.waitKey()
+                util.clearScreen()
 
     def partita(self):
 

@@ -1,6 +1,7 @@
 """questo è un modulo di funzioni utili allo svolgimento del programma"""
 
 import sys
+import os
 
 def checkInput(input_utente):
         """
@@ -73,3 +74,16 @@ def esciGioco():
         sys.exit()
     else:
         print("\nRitorno al gioco...")
+
+
+def clearScreen():
+    """Pulisce lo schermo"""
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def waitKey():
+    """Mette in pausa attendendo un input dell'utente"""
+    if os.name == 'nt':
+        os.system('pause')
+    else:
+        input("Premi invio per continuare...")
