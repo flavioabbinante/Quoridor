@@ -1,4 +1,4 @@
-"""questo è un modulo di funzioni utili allo svolgimento del programma"""
+"""questo è un modulo di funzioni utili allo svolgimento del programma."""
 
 import os
 import sys
@@ -6,6 +6,7 @@ import sys
 
 def checkInput(input_utente):
         """Valida l'input del giocatore.
+
         Ritorna il tipo di azione o None se non valido.
         """
         # Caso muro: 3 caratteri (es. a1h)
@@ -32,14 +33,15 @@ def checkInput(input_utente):
         return None
 
 def convertiCoordinate(scelta: str, tipoAzione: str):
-    """Converte l'input testuale nelle coordinate della matrice di gioco.
+    """Converti l'input testuale nelle coordinate della matrice di gioco.
     
     Args:
         scelta: Stringa della mossa inserita dall'utente.
         tipoAzione: Tipo di azione da eseguire ('move' o 'wall').
     
     Returns:
-        Tupla (riga, colonna) con le coordinate calcolate, oppure (None, None) se l'azione non è supportata.
+        Tupla (riga, colonna) con le coordinate calcolate, 
+        (None, None) se l'azione non è supportata.
 
     """
     if tipoAzione not in ("move", "wall"):
@@ -55,7 +57,7 @@ def convertiCoordinate(scelta: str, tipoAzione: str):
     return r, c
 
 def abbandonaPartita(turno):
-    """Permette al giocatore di abbandonare la partita in corso"""
+    """Permette al giocatore di abbandonare la partita in corso."""
     if turno % 2 == 0:
         print("P2 ha abbandonato")
         vincitore = "P1"
@@ -67,7 +69,7 @@ def abbandonaPartita(turno):
 
 
 def esciGioco():
-    """Permette al giocatore di uscire dal gioco e fermare il processo"""
+    """Permette al giocatore di uscire dal gioco e fermare il processo."""
     scelta = input("Sei sicuro di voler uscire dal gioco? (s/n): ").lower()
     if scelta == 's':
         print("\nChiusura del gioco in corso. A presto!")
@@ -77,12 +79,12 @@ def esciGioco():
 
 
 def clearScreen():
-    """Pulisce lo schermo"""
+    """Pulisce lo schermo."""
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
 def waitKey():
-    """Mette in pausa attendendo un input dell'utente"""
+    """Mette in pausa attendendo un input dell'utente."""
     if os.name == 'nt':
         os.system('pause')
     else:
