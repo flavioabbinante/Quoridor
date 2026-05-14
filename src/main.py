@@ -26,6 +26,7 @@ class Main:
         while True:
             self.ui.menuIniziale()
             menuIniziale = input("Seleziona un'opzione: ")
+            util.clearScreen()
             if menuIniziale == "1": # Qui si gestisce la nuova partita
                 self.partita() # Inizio della nuova partita
                 util.waitKey()
