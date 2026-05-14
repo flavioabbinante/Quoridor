@@ -1,10 +1,16 @@
-"""Gestisce il pedone e le azioni che può compiere"""
+"""Gestisce il pedone e le azioni che può compiere."""
 from typing import Literal
 
 from griglia.cella import Cella
 
+
 class Pedone:
-    def __init__(self, nome: str, colore: Literal["red", "blue"], cellaPartenza: Cella, obiettivo: int):
+    """Rappresenta un pedone del gioco, con le sue caratteristiche e azioni."""
+
+    def __init__(self, nome: str, 
+                 colore: Literal["red", "blue"], 
+                 cellaPartenza: Cella, 
+                 obiettivo: int):
         """Costruttore della classe Pedone.
         
         Args:
@@ -13,6 +19,7 @@ class Pedone:
             cellaPartenza: Cella di partenza
             posizione: Posizione attuale
             obiettivo: Obiettivo da raggiungere
+
         """
         self.nome = nome
         self.colore = colore
@@ -22,7 +29,10 @@ class Pedone:
         self.obiettivo = obiettivo
 
     def __repr__(self):
-        return f"Pedone(n={self.nome}, c={self.colore}, cp={self.cellapartenza}, pos={self.posizione}, muri={self.muri}, obiettivo={self.obiettivo})"
+        """Restituisce una rappresentazione in stringa del pedone."""
+        return f"""Pedone(n={self.nome}, c={self.colore}, 
+            cp={self.cellapartenza}, pos={self.posizione}, 
+            muri={self.muri}, obiettivo={self.obiettivo})"""
 
     def getNome(self):
         """Restituisce il nome del pedone."""
@@ -54,6 +64,7 @@ class Pedone:
         
         Args:
             posizione: Posizione di destinazione
+
         """
         self.posizione = posizione
 
@@ -62,7 +73,9 @@ class Pedone:
         """Usa un muro e lo decrementa dal contatore.
         
         Returns:
-            True se il muro è stato usato, 'Muri esauriti' se non ci sono muri disponibili
+            True se il muro è stato usato, 
+            'Muri esauriti' se non ci sono muri disponibili
+
         """
         if self.muri > 0:
             self.muri -= 1
@@ -75,8 +88,6 @@ class Pedone:
 
         Returns:
             bool: True se il pedone ha raggiunto la riga obiettivo, False altrimenti.
+
         """
-        if self.posizione.riga == self.obiettivo:
-            return True
-        
-        return False
+        return self.posizione.riga == self.obiettivo

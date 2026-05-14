@@ -2,16 +2,23 @@ from rich import print
 
 from griglia.cella import Cella
 from griglia.griglia import Griglia
+from muro.muro import Muro
 from pedone.pedone import Pedone
 from ui.ui import UI
 from utility import utility as util
-from muro.muro import Muro
 
 
 class Main:
+    """Classe principale. Gestisce il flusso del gioco.
+
+    l'input con l'utente e la logica di base della partita.
+    """
 
     def __init__(self):
-        """Costruttore della classe Main, inizializza le componenti principali del gioco."""
+        """Costruttore della classe Main,.
+        
+        inizializza le componenti principali del gioco.
+        """
         self.ui = UI()
         self.griglia = Griglia()
         self.p1 = Pedone("P2","red",Cella(0,8),16)
@@ -47,24 +54,27 @@ class Main:
                 util.clearScreen()
 
     def partita(self):
+        """Gestisce il loop di una partita,.
+        
+        alternando i turni dei giocatori e 
 
-        """Gestisce il loop di una partita, alternando i turni dei giocatori e verificando le condizioni di vittoria."""
-
+        verifica le condizioni di vittoria.
+        """
         turno = 1
         
         while not self.p1.checkVittoria() and not self.p2.checkVittoria():
             self.ui.printGriglia(self.griglia.matrice, [self.p1, self.p2])
             
-            if turno % 2 == 0:
-                currPedone = self.p1
-            else:
-                currPedone = self.p2
+            currPedone = self.p1 if turno % 2 == 0 else self.p2
                 
             self.ui.mostraTurno(currPedone)
             
             mossaCompletata = False
             while not mossaCompletata:
-                scelta = input("Mossa da effettuare [/help per visualizzare i comandi]: ").lower()
+                scelta = input(
+                    "Mossa da effettuare [/help per visualizzare i comandi]: "
+                ).lower()
+
                 esito = self.eseguiMossa(scelta, currPedone)
                 
                 if esito == "quit":
@@ -72,51 +82,67 @@ class Main:
                     self.ui.schermataVittoria(vincitore)
                     return
                 
-                if esito == True:
+                if esito is True:
                     mossaCompletata = True
             
             turno += 1
+            util.clearScreen()
             
-        if self.p1.checkVittoria():
-            vincitore = self.p1.getNome()
-        else:
-            vincitore = self.p2.getNome()
+        vincitore = self.p1.getNome() if self.p1.checkVittoria() else self.p2.getNome()
             
         self.ui.schermataVittoria(vincitore)
 
     def eseguiMossa(self, scelta: str, pedone: Pedone):
 
-        azione = util.checkInput(scelta) # Controllo che l'input sia valido e capisco quale azione si vuole eseguire
-        
+        # Controllo che l'input sia valido e
+        # capisco quale azione si vuole eseguire
+        azione = util.checkInput(scelta) 
+    
         # Se devo piazzare un muro o muovere il pedone
         if azione == "move" or azione == "wall":
-            r, c = util.convertiCoordinate(scelta, azione) # Converto le coordinate da stringa a indici
+            # Converto le coordinate da stringa a indici
+            r, c = util.convertiCoordinate(scelta, azione) 
             
             if azione == "move":
                 destinazione = self.griglia.get_cella(r, c)
                 posizioneAttuale = pedone.getPosizione()
 
                 # Verifica che la cella sia esattamente adiacente (ortogonale)
-                distanzaValida = abs(destinazione.riga - posizioneAttuale.riga) + abs(destinazione.colonna - posizioneAttuale.colonna) == 2
+                distanzaValida = (abs(destinazione.riga - posizioneAttuale.riga)
+                                   + abs(
+                                       destinazione.colonna - posizioneAttuale.colonna
+                                       ) == 2)
 
-                if destinazione and distanzaValida and self.griglia.passaggio_libero(posizioneAttuale, destinazione):
+                if ( destinazione 
+                    and distanzaValida 
+                    and self.griglia.passaggio_libero(
+                        posizioneAttuale, 
+                        destinazione
+                        )
+                    ):
                     pedone.muoviPedone(destinazione)
                     return True
                 else:
-                    self.ui.erroreMsg("Movimento non consentito. Puoi spostarti solo in una cella adiacente.")
+                    self.ui.erroreMsg(""
+                                      "Movimento non consentito. " \
+                                      "Puoi spostarti solo in una cella adiacente."""
+                                      )
 
             else: # Piazzamento muro
                 orientamento = scelta[2] # l'ordine è riga, colonna, orientamento
                 nuovoMuro = Muro(r, c, orientamento)
                 
-                if pedone.usaMuro() == True:
+                if pedone.usaMuro() is True:
                     # Tenta il piazzamento fisico sulla griglia
                     if self.griglia.piazza_muro(nuovoMuro):
                         return True
                     else:
-                        # Restituisce il muro se il piazzamento fallisce (collisione o fuori limiti)
+                        # Restituisce il muro se il piazzamento fallisce 
+                        # (collisione o fuori limiti)
                         pedone.muri += 1
-                        self.ui.erroreMsg("Non è possibile piazzare il muro in questa posizione.")
+                        self.ui.erroreMsg(
+                            """Non è possibile piazzare il muro in questa posizione."""
+                            )
                 else:
                     self.ui.erroreMsg("Non hai più muri a disposizione.")
                     

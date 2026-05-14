@@ -1,1 +1,1 @@
-"""Package per la gestione delle classi relative alla griglia di gioco"""
+"""Package per la gestione delle classi relative alla griglia di gioco."""

@@ -1,0 +1,1 @@
+"""Package utility: contiene funzioni di utilità per il gioco."""
