@@ -98,6 +98,7 @@ L'architettura del software è suddivisa in package specifici per garantire un a
 ## 8. Analisi retrospettiva
 
 ### 8.1 Sprint 0
+Le azioni da intraprendere per migliorare la qualità del lavoro e l'efficienza del gruppo sono per lo più legate alla mancanza di coordinazione generale tra i componenti e una maggiore proattività nell'impegno ed aiuto reciproco
 ![alt text](<img/Sprint0_Retrospective.png>)
 
 
