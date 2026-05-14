@@ -68,7 +68,7 @@ class Pedone:
             self.muri -= 1
             return True
         else:
-            return "Muri esauriti"  #TODO: aggiungere Errore UI
+            return False
         
     def checkVittoria(self) -> bool:
         """Controlla se il pedone ha raggiunto l'obiettivo.
