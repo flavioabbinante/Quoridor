@@ -4,7 +4,7 @@ import sys
 
 def checkInput(input_utente):
         """
-        Valida l'input del giocatore (US #57).
+        Valida l'input del giocatore.
         Ritorna il tipo di azione o None se non valido.
         """
         # Caso muro: 3 caratteri (es. a1h)
@@ -29,6 +29,29 @@ def checkInput(input_utente):
             return "bye"
 
         return None
+
+def convertiCoordinate(scelta: str, tipoAzione: str):
+    """
+    Converte l'input testuale nelle coordinate della matrice di gioco.
+    
+    Args:
+        scelta: Stringa della mossa inserita dall'utente.
+        tipoAzione: Tipo di azione da eseguire ('move' o 'wall').
+    
+    Returns:
+        Tupla (riga, colonna) con le coordinate calcolate, oppure (None, None) se l'azione non è supportata.
+    """
+    if tipoAzione not in ("move", "wall"):
+        return None, None
+        
+    c = (ord(scelta[0]) - 97) * 2
+    r = (9 - int(scelta[1])) * 2
+    
+    if tipoAzione == "wall":
+        c += 1
+        r += 1
+        
+    return r, c
 
 def abbandonaPartita(turno):
     """permette al giocatore di abbandonare la partita in corso"""
