@@ -1,6 +1,7 @@
-"""Gestisce la logica dei muri e del loro inserimento nella griglia"""
+"""Gestisce la logica dei muri e del loro inserimento nella griglia."""
 class Muro:
     """Rappresenta un muro da piazzare sulla scacchiera.
+
     Le coordinate indicano il 'Perno Centrale' (l'incrocio tra 4 celle).
     """
 
@@ -10,4 +11,5 @@ class Muro:
         self.orientamento = orientamento.lower()
 
     def __repr__(self):
+        """Restituisce una rappresentazione in stringa del muro."""
         return f"Muro(dir='{self.orientamento}', centro=({self.riga},{self.colonna}))"
