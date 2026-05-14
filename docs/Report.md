@@ -73,12 +73,20 @@ Descrizione dell’architettura generale del sistema e dei suoi componenti princ
 ## Stili architetturali
 Spiega perché hai scelto una certa architettura (es. MVC, layered, clean architecture) e come soddisfa i requisiti.
 
----
 
 ## Diagramma dei package
-diagramma dei package con spiegazione
+![alt text](<img/Diagramma_package.png>)
+### Descrizione dei package principali
 
----
+L'architettura del software è suddivisa in package specifici per garantire un alto livello di disaccoppiamento. Tutti i package del dominio si trovano all'interno della directory `src/`.
+
+| Package | Responsabilità | Dipendenze |
+| :--- | :--- | :--- |
+| **`griglia`** | Contiene le classi `Griglia` e `Cella`. Gestisce la scacchiera (matrice numpy), la mappatura delle celle calpestabili e la validazione fisica dei percorsi e delle collisioni. | `muro`, `numpy` |
+| **`muro`** | Contiene il modello dati dell'entità `Muro` (coordinate del perno centrale e orientamento orizzontale/verticale). | Nessuna |
+| **`pedone`** | Contiene lo stato del giocatore, la sua posizione attuale (`Cella`), la riga obiettivo per la vittoria e il contatore dei muri a disposizione. | `griglia.cella` |
+| **`ui`** | Gestisce solo l'output visivo da terminale. Renderizza la matrice a colori, stampa i menu e i messaggi di errore.| `pedone`, `rich` |
+| **`utility`** | Fornisce funzioni di supporto condivise, come il parser per validare l'input testuale dell'utente e l'algoritmo di conversione dalle coordinate umane (notazione del quoridor) agli indici della matrice. | `sys` |
 
 ## Diagramma dei componenti 
 Da inserire se si usano librerie esterne
