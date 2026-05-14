@@ -29,7 +29,6 @@ L'applicazione permette a due giocatori di sfidarsi in locale tramite un'interfa
 ---
 
 ## Requisiti specifici
-
 ### Requisiti funzionali
 
 I requisiti funzionali descrivono le operazioni che il sistema deve eseguire per garantire il corretto svolgimento di una partita a Quoridor, coprendo le funzionalità richieste dalle User Story del progetto.
@@ -66,13 +65,16 @@ I requisiti non funzionali definiscono i criteri di qualità del sistema, garant
 * **Portabilità:** Il gioco deve poter essere eseguit dalla maggioranza dei Terminali.
 
 ## System Design
-Descrizione dell’architettura generale del sistema e dei suoi componenti principali.
+### Stili architetturali
+**Stile Architetturale Adottato**
+* **Scelta:** Architettura a Livelli basata sul pattern **MVC (Model-View-Controller)**.
+* **Motivazione:** Questa scelta risponde direttamente ai requisiti non funzionali di manutenibilità e portabilità. Separando la logica del gioco dall'interfaccia utente, è possibile in futuro sostituire l'interfaccia CLI con una GUI senza dover modificare le regole del gioco.
+* **Trade-off:** La divisione in package MVC ha richiesto una progettazione iniziale più attenta, ma ha ripagato azzerando la complessità durante l'implementazione del Game Loop.
 
----
-
-## Stili architetturali
-Spiega perché hai scelto una certa architettura (es. MVC, layered, clean architecture) e come soddisfa i requisiti.
-
+**Principi di Progettazione Applicati**
+* **SOLID (Single Responsibility Principle - SRP):** Ogni classe ha una sola responsabilità. La classe `UI` si occupa esclusivamente di renderizzare output tramite la libreria `rich`; la classe `Griglia` si occupa solo di gestire la matrice numpy e verificare le collisioni fisiche; la classe `Pedone` è un puro contenitore di stato.
+* **KISS (Keep It Simple, Stupid) e DRY (Don't Repeat Yourself):** Il principio KISS è stato applicato nella traduzione delle coordinate utente (es. "e2") negli indici della matrice. Invece di usare complessi dizionari di mappatura, si è optato per una semplice ed elegante formula matematica in tempo costante. Le funzioni di conversione sono state isolate nel modulo `utility.py` per essere riutilizzate senza duplicazioni di codice.
+* **Separation of Concerns:** Netta separazione tra il "Controller" (`main.py`, che gestisce il flusso degli input e i turni) e il "Model" (`griglia`, `muro`, `pedone`, che incapsulano le regole inviolabili del gioco).
 
 ## Diagramma dei package
 ![alt text](<img/Diagramma_package.png>)
