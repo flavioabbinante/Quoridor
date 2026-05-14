@@ -1,1 +1,1 @@
-"""Package per la gestione della User interface"""
+"""Package per la gestione della User interface."""
