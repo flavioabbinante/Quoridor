@@ -7,7 +7,9 @@ from .cella import Cella
 
 class Griglia:
     """Gestisce la struttura dati principale del tabellone.
+
     Usa una matrice numpy 17x17 per tracciare muri e spazi vuoti,
+
     e mantiene i riferimenti agli oggetti Cella calpestabili.
     """
 
@@ -22,6 +24,7 @@ class Griglia:
 
     def _inizializza_celle(self):
         """Popola il dizionario con oggetti Cella.
+
         Nella logica 17x17, le caselle dei pedoni si trovano solo sugli indici pari.
         """
         for r in range(0, 17, 2):
@@ -30,26 +33,26 @@ class Griglia:
 
     def get_cella(self, riga: int, colonna: int) -> Cella:
         """Restituisce l'oggetto Cella alle coordinate richieste.
+
         Utile per assegnare CellaPartenza o Posizione a un Pedone.
         """
         return self.celle.get((riga, colonna), None)
 
     def passaggio_libero(self, cella_partenza, cella_destinazione):
         """Verifica se c'è un muro tra due celle adiacenti.
+
         Restituisce True se si può passare, False se c'è un muro.
         """
         riga_mezzo = (cella_partenza.riga + cella_destinazione.riga) // 2
         col_mezzo = (cella_partenza.colonna + cella_destinazione.colonna) // 2
         
         
-        if self.matrice[riga_mezzo, col_mezzo] == 1:
-            return False # Muro
-        else:
-            return True  # Libero
+        return self.matrice[riga_mezzo, col_mezzo] != 1  # Libero se non è un muro
         
 
     def piazza_muro(self, muro: Muro) -> bool:
         """Tenta di piazzare un Muro nella matrice NumPy espandendolo dal centro.
+
         Restituisce True se ha successo, False se illegale.
         """
         indici_da_occupare = []
