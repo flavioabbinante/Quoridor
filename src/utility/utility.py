@@ -5,32 +5,36 @@ import sys
 
 
 def checkInput(input_utente):
-        """Valida l'input del giocatore.
+    """Valida l'input del giocatore.
 
-        Ritorna il tipo di azione o None se non valido.
-        """
-        # Caso muro: 3 caratteri (es. a1h)
-        if len(input_utente) == 3:
-            if 'a' <= input_utente[0] <= 'h':
-                if '1' <= input_utente[1] <= '9':
-                    if input_utente[2] == 'h' or input_utente[2] == 'v':
-                        return "wall"
+    Ritorna il tipo di azione o None se non valido.
+    """
+    # Inserimento del muro
+    if (
+        len(input_utente) == 3
+        and 'a' <= input_utente[0] <= 'h'
+        and '1' <= input_utente[1] <= '9'
+        and input_utente[2] in ('h', 'v')
+    ):
+        return "wall"
 
-        # Caso movimento: 2 caratteri (es. e2)
-        elif len(input_utente) == 2:
-            if 'a' <= input_utente[0] <= 'i':
-                if '1' <= input_utente[1] <= '9':
-                    return "move"
+    # Movimento del pedone
+    if (
+        len(input_utente) == 2
+        and 'a' <= input_utente[0] <= 'i'
+        and '1' <= input_utente[1] <= '9'
+    ):
+        return "move"
 
-        # Comandi speciali con slash (stile chat/console)
-        elif input_utente == "/help":
-            return "help"
-        elif input_utente == "/quit":
-            return "quit"
-        elif input_utente == "/bye":
-            return "bye"
+    # Comandi speciali
+    if input_utente == "/help":
+        return "help"
+    if input_utente == "/quit":
+        return "quit"
+    if input_utente == "/bye":
+        return "bye"
 
-        return None
+    return None
 
 def convertiCoordinate(scelta: str, tipoAzione: str):
     """Converti l'input testuale nelle coordinate della matrice di gioco.
