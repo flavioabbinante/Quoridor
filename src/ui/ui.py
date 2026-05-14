@@ -1,10 +1,15 @@
-"""Gestisce l'interfaccia grafica relativa ai menu e gli input del gioco"""
+"""Gestisce l'interfaccia grafica relativa ai menu e gli input del gioco."""
 from rich.console import Console
 
 from pedone.pedone import Pedone
 
 
 class UI:
+    """Gestisce l'interfaccia utente del gioco,.
+    
+    inclusi menu, regole e visualizzazione della griglia.
+    """
+
     def __init__(self):
         """Initialize the game's UI with default settings."""
         self.console = Console()
@@ -32,13 +37,17 @@ class UI:
 
     def menuIniziale(self):
         """Mostra il menu iniziale del gioco."""
-        self.console.print(f"[bold {self._ACCENT_COLOR}]1.[/bold {self._ACCENT_COLOR}] Nuova partita")
-        self.console.print(f"[bold {self._ACCENT_COLOR}]2.[/bold {self._ACCENT_COLOR}] Regole del gioco")
-        self.console.print(f"[bold {self._ACCENT_COLOR}]3.[/bold {self._ACCENT_COLOR}] Crediti   ")
+        color = self._ACCENT_COLOR
+        self.console.print(f"[bold {color}]1.[/bold {color}] Nuova partita")
+
+        self.console.print(f"[bold {color}]2.[/bold {color}] Regole del gioco")
+
+        self.console.print(f"[bold {color}]3.[/bold {color}] Crediti   ")
+
         self.console.print("[bold red]0.[/bold red] Esci dal gioco")
 
     def mostraRegole(self):
-        """Mostra le regole del gioco Quoridor"""
+        """Mostra le regole del gioco Quoridor."""
         self.console.print(f"""
         [bold {self._ACCENT_COLOR}]REGOLE DEL QUORIDOR[/bold {self._ACCENT_COLOR}]
 
@@ -85,8 +94,11 @@ Autori del progetto:
     def schermataVittoria(self, vincitore: str):
         """Mostra la schermata di vittoria."""
         self.console.print(
-            f"\n[bold black on bright_green] 🎉 PARTITA TERMINATA 🎉 [/bold black on bright_green]\n"
-            f"[bold white]VINCITORE:[/bold white] [bold bright_green]{vincitore}[/bold bright_green]\n"
+            f"\n[bold black on bright_green] "
+            f"🎉 PARTITA TERMINATA 🎉 "
+            f"[/bold black on bright_green]\n"
+            f"[bold white]VINCITORE:[/bold white] "
+            f"[bold bright_green]{vincitore}[/bold bright_green]\n"
         )
 
     def helpMessage(self):
@@ -118,14 +130,19 @@ Autori del progetto:
 
     def printGriglia(self, matrice_griglia, pedoni: list[Pedone]):
         """Stampa la griglia di gioco."""
-        self.console.print(f"     [bold {self._ACCENT_COLOR}]a   b   c   d   e   f   g   h   i[/bold {self._ACCENT_COLOR}]")
+        color = self._ACCENT_COLOR
+        header = f"     [bold {color}]a   b   c   d   e   f   g   h   i[/bold {color}]"
+        self.console.print(header)
         self.console.print("   [dim]" + "-" * 37 + "[/dim]")
 
         for r in range(17):
             riga_str = ""
             if r % 2 == 0:
                 numero_riga = 9 - (r // 2)
-                riga_str += f" [bold {self._ACCENT_COLOR}]{numero_riga}[/bold {self._ACCENT_COLOR}] [dim]|[/dim]"
+                color = self._ACCENT_COLOR
+                riga_str += (
+                    f" [bold {color}]{numero_riga}[/bold {color}] [dim]|[/dim]"
+                )
             else:
                 riga_str += "   [dim]|[/dim]" 
 
@@ -141,22 +158,41 @@ Autori del progetto:
                             colore = pedone.getColore()
                             break
                             
-                    testo_casella = f" {simbolo} " if len(simbolo) == 1 else f" {simbolo}"
+                    if len(simbolo) == 1:
+                        testo_casella = f" {simbolo} "
+                    else:
+                        testo_casella = f" {simbolo}"
                     riga_str += f"[{colore}]{testo_casella}[/{colore}]"
                 
                 elif r % 2 == 0 and c % 2 != 0:
-                    riga_str += "[bold yellow]║[/bold yellow]" if matrice_griglia[r, c] == 1 else " "
+                    if matrice_griglia[r, c] == 1:
+                        riga_str += "[bold yellow]║[/bold yellow]"
+                    else:
+                        riga_str += " "
                 elif r % 2 != 0 and c % 2 == 0:
-                    riga_str += "[bold yellow]═══[/bold yellow]" if matrice_griglia[r, c] == 1 else "   "
+                    if matrice_griglia[r, c] == 1:
+                        riga_str += "[bold yellow]═══[/bold yellow]"
+                    else:
+                        riga_str += "   "
                 else:
-                    riga_str += "[bold yellow]╬[/bold yellow]" if matrice_griglia[r, c] == 1 else " "
+                    if matrice_griglia[r, c] == 1:
+                        riga_str += "[bold yellow]╬[/bold yellow]"
+                    else:
+                        riga_str += " "
             
             if r % 2 == 0:
-                riga_str += f"[dim]|[/dim] [bold {self._ACCENT_COLOR}]{9 - (r // 2)}[/bold {self._ACCENT_COLOR}]"
+                color = self._ACCENT_COLOR
+                riga_str += (
+                    f"[dim]|[/dim] [bold {color}]{9 - (r // 2)}"
+                    f"[/bold {color}]"
+                )
             else:
                 riga_str += "[dim]|[/dim]"
                 
             self.console.print(riga_str) 
             
         self.console.print("   [dim]" + "-" * 37 + "[/dim]")
-        self.console.print(f"     [bold {self._ACCENT_COLOR}]a   b   c   d   e   f   g   h   i[/bold {self._ACCENT_COLOR}]\n")
+        footer = (
+        f"     [bold {color}]a   b   c   d   e   f   g   h   i[/bold {color}]\n"
+        )
+        self.console.print(footer)
