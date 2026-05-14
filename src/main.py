@@ -2,10 +2,10 @@ from rich import print
 
 from griglia.cella import Cella
 from griglia.griglia import Griglia
+from muro.muro import Muro
 from pedone.pedone import Pedone
 from ui.ui import UI
 from utility import utility as util
-from muro.muro import Muro
 
 
 class Main:
@@ -47,9 +47,7 @@ class Main:
                 util.clearScreen()
 
     def partita(self):
-
         """Gestisce il loop di una partita, alternando i turni dei giocatori e verificando le condizioni di vittoria."""
-
         turno = 1
         
         while not self.p1.checkVittoria() and not self.p2.checkVittoria():

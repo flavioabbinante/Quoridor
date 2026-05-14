@@ -1,1 +1,1 @@
-"""Package per la gestione dei muri """
+"""Package per la gestione dei muri"""

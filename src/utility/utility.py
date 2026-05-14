@@ -1,11 +1,11 @@
 """questo è un modulo di funzioni utili allo svolgimento del programma"""
 
-import sys
 import os
+import sys
+
 
 def checkInput(input_utente):
-        """
-        Valida l'input del giocatore.
+        """Valida l'input del giocatore.
         Ritorna il tipo di azione o None se non valido.
         """
         # Caso muro: 3 caratteri (es. a1h)
@@ -32,8 +32,7 @@ def checkInput(input_utente):
         return None
 
 def convertiCoordinate(scelta: str, tipoAzione: str):
-    """
-    Converte l'input testuale nelle coordinate della matrice di gioco.
+    """Converte l'input testuale nelle coordinate della matrice di gioco.
     
     Args:
         scelta: Stringa della mossa inserita dall'utente.
@@ -41,6 +40,7 @@ def convertiCoordinate(scelta: str, tipoAzione: str):
     
     Returns:
         Tupla (riga, colonna) con le coordinate calcolate, oppure (None, None) se l'azione non è supportata.
+
     """
     if tipoAzione not in ("move", "wall"):
         return None, None
@@ -55,7 +55,7 @@ def convertiCoordinate(scelta: str, tipoAzione: str):
     return r, c
 
 def abbandonaPartita(turno):
-    """permette al giocatore di abbandonare la partita in corso"""
+    """Permette al giocatore di abbandonare la partita in corso"""
     if turno % 2 == 0:
         print("P2 ha abbandonato")
         vincitore = "P1"
@@ -67,7 +67,7 @@ def abbandonaPartita(turno):
 
 
 def esciGioco():
-    """permette al giocatore di uscire dal gioco e fermare il processo"""
+    """Permette al giocatore di uscire dal gioco e fermare il processo"""
     scelta = input("Sei sicuro di voler uscire dal gioco? (s/n): ").lower()
     if scelta == 's':
         print("\nChiusura del gioco in corso. A presto!")

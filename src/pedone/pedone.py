@@ -3,6 +3,7 @@ from typing import Literal
 
 from griglia.cella import Cella
 
+
 class Pedone:
     def __init__(self, nome: str, colore: Literal["red", "blue"], cellaPartenza: Cella, obiettivo: int):
         """Costruttore della classe Pedone.
@@ -13,6 +14,7 @@ class Pedone:
             cellaPartenza: Cella di partenza
             posizione: Posizione attuale
             obiettivo: Obiettivo da raggiungere
+
         """
         self.nome = nome
         self.colore = colore
@@ -54,6 +56,7 @@ class Pedone:
         
         Args:
             posizione: Posizione di destinazione
+
         """
         self.posizione = posizione
 
@@ -63,6 +66,7 @@ class Pedone:
         
         Returns:
             True se il muro è stato usato, 'Muri esauriti' se non ci sono muri disponibili
+
         """
         if self.muri > 0:
             self.muri -= 1
@@ -75,6 +79,7 @@ class Pedone:
 
         Returns:
             bool: True se il pedone ha raggiunto la riga obiettivo, False altrimenti.
+
         """
         if self.posizione.riga == self.obiettivo:
             return True
