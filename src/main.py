@@ -7,6 +7,7 @@ from griglia.griglia import Griglia
 from pedone.pedone import Pedone
 from ui.ui import UI
 from utility import utility as util
+from muro.muro import Muro
 
 
 class Main:
@@ -47,18 +48,43 @@ class Main:
                 system("cls")
 
     def partita(self):
-        """Gestisce la logica di una partita in corso."""
+
+        """Gestisce il loop di una partita, alternando i turni dei giocatori e verificando le condizioni di vittoria."""
+
         turno = 1
-        # while self.p1.checkVittoria() == False and self.p2.checkVittoria() == False:
-        self.ui.printGriglia(self.griglia.matrice,[self.p1,self.p2])
-        if turno % 2 == 0: # TURNO DI P1
-            currPedone = self.p1
-        else: # TURNO DI P2
-            currPedone = self.p2
-        self.ui.mostraTurno(currPedone)
-        result = None
-        while result == None:
-            scelta = input("Mossa da effettuare [/help per visualizzare i comandi] :").lower()
+        
+        while not self.p1.checkVittoria() and not self.p2.checkVittoria():
+            self.ui.printGriglia(self.griglia.matrice, [self.p1, self.p2])
+            
+            if turno % 2 != 0:
+                currPedone = self.p1
+            else:
+                currPedone = self.p2
+                
+            self.ui.mostraTurno(currPedone)
+            
+            mossaCompletata = False
+            while not mossaCompletata:
+                scelta = input("Mossa da effettuare [/help per visualizzare i comandi]: ").lower()
+                esito = self.eseguiMossa(scelta, currPedone)
+                
+                if esito == "quit":
+                    vincitore = util.abbandonaPartita(turno)
+                    self.ui.schermataVittoria(vincitore)
+                    return
+                
+                if esito == True:
+                    mossaCompletata = True
+            
+            turno += 1
+            
+        if self.p1.checkVittoria():
+            vincitore = self.p1.getNome()
+        else:
+            vincitore = self.p2.getNome()
+            
+        self.ui.schermataVittoria(vincitore)
+
 
         
         turno += 1
