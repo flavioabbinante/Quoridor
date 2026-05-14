@@ -98,6 +98,7 @@ L'architettura del software è suddivisa in package specifici per garantire un a
 ## 8. Analisi retrospettiva
 
 ### 8.1 Sprint 0
+![alt text](<img/Sprint0_Retrospective.png>)
 
 
 
