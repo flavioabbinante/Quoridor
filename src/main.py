@@ -1,6 +1,6 @@
 from rich import print
 
-from src import UI, Cella, Griglia, Muro, Pedone, util
+from . import UI, Cella, Griglia, Muro, Pedone, util
 
 
 class Main:

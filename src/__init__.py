@@ -1,7 +1,9 @@
 """Main package for the app."""
+from .griglia.cella import Cella as Cella
+from .griglia.griglia import Griglia as Griglia
+from .muro.muro import Muro as Muro
+from .pedone.pedone import Pedone as Pedone
+from .ui.ui import UI as UI
 from .utility import utility as util
-from .ui.ui import UI
-from .griglia.cella import Cella
-from .griglia.griglia import Griglia
-from .muro.muro import Muro
-from .pedone.pedone import Pedone
+
+__all__ = ["Cella", "Griglia", "Muro", "Pedone", "UI", "util"]
