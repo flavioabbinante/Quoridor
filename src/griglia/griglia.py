@@ -1,6 +1,6 @@
 import numpy as np
 
-from muro.muro import Muro
+from src.muro.muro import Muro
 
 from .cella import Cella
 
