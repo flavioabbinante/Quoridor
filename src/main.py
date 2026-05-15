@@ -1,11 +1,6 @@
 from rich import print
 
-from griglia.cella import Cella
-from griglia.griglia import Griglia
-from muro.muro import Muro
-from pedone.pedone import Pedone
-from ui.ui import UI
-from utility import utility as util
+from src import UI, Cella, Griglia, Muro, Pedone, util
 
 
 class Main:

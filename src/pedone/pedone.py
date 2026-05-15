@@ -1,7 +1,7 @@
 """Gestisce il pedone e le azioni che può compiere."""
 from typing import Literal
 
-from griglia.cella import Cella
+from src.griglia.cella import Cella
 
 
 class Pedone:

@@ -1,7 +1,7 @@
 """Gestisce l'interfaccia grafica relativa ai menu e gli input del gioco."""
 from rich.console import Console
 
-from pedone.pedone import Pedone
+from src.pedone.pedone import Pedone
 
 
 class UI:
