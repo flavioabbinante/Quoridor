@@ -2,7 +2,7 @@
 
 ---
 
-> *"Costruisci il tuo labirinto, blocca l'avversario e raggiungi l'obiettivo."* 🚧
+> 
 Quoridor CLI è un progetto universitario sviluppato in team da 5 studenti nell'ambito del corso di Ingegneria del Software, con l'obiettivo di applicare in modo rigoroso i principi dell'ingegneria del software moderna a un dominio di gioco non banale.
 Il progetto consiste nella realizzazione di una versione testuale del celebre gioco da tavolo Quoridor, con piena gestione della logica di movimento dei pedoni, del piazzamento dei muri e della validazione dei percorsi tramite algoritmi di pathfinding su matrice 17×17 (NumPy). Il sistema è strutturato secondo il pattern architetturale MVC, con una netta separazione tra logica di dominio, presentazione e controllo del flusso applicativo.
 
